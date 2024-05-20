@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :nickname, presence: { message: 'を入力してください' }
+  validates :email, presence: { message: 'を入力してください' }
+  validates :password, presence: { message: 'を入力してください' }
+
   has_many :task_headers, dependent: :destroy
 end
