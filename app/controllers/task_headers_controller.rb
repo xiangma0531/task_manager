@@ -37,7 +37,7 @@ class TaskHeadersController < ApplicationController
   private
 
   def task_header_params
-    params.require(:task_header).permit(:title)
+    params.require(:task_header).permit(:title).merge(user_id: current_user.id)
   end
 
 end
