@@ -3,7 +3,7 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import PropTypes from 'prop-types'
 
 const Hello = props => (
@@ -11,16 +11,15 @@ const Hello = props => (
 )
 
 Hello.defaultProps = {
-  name: 'David'
+  name: 'React'
 }
 
 Hello.propTypes = {
   name: PropTypes.string
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+
+root.render(
+  <Hello name="React" />
+)
