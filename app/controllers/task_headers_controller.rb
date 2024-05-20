@@ -1,0 +1,2 @@
+class TaskHeadersController < ApplicationController
+end
