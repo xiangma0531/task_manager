@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      task_header: タスクヘッダー
+      task_detail: タスク明細
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+      task_header:
+        title: タイトル
+      task_detail:
+        name: タスク名
+        notes: 備考
+        due_date: 期日
+        completed: 完了
+  
+  errors:
+    message:
+      blank: "を入力してください"
+      invalid: "は不正な値です"
+      too_short: "は%{count}文字以上で入力してください"
+      too_long: "は%{count}文字以下で入力してください"
+      taken: "はすでに存在します"
