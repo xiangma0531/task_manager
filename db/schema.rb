@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_20_125652) do
+ActiveRecord::Schema.define(version: 2024_05_20_125904) do
+
+  create_table "task_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "notes"
+    t.date "due_date"
+    t.boolean "completed"
+    t.bigint "task_header_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_header_id"], name: "index_task_details_on_task_header_id"
+  end
 
   create_table "task_headers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -33,5 +44,6 @@ ActiveRecord::Schema.define(version: 2024_05_20_125652) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "task_details", "task_headers"
   add_foreign_key "task_headers", "users"
 end
